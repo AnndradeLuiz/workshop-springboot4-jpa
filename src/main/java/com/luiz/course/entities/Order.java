@@ -87,6 +87,14 @@ public class Order implements Serializable {
         this.client = client;
     }
 
+    public Double getTotal() {
+        Double sum = 0.0;
+        for (OrderItem x : items) {
+            sum = sum + x.getSubTotal();
+        }
+        return sum;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Order order)) return false;
